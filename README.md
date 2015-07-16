@@ -15,6 +15,7 @@ This is completely based on RemoteUserJiraAuth by Angus Warren.
     <Connector port="8009" redirectPort="8443" enableLookups="false" protocol="AJP/1.3" URIEncoding="UTF-8" tomcatAuthentication="false"/> 
 - Enable Apache module proxy_ajp and auth_kerb
 - Configure Apache
+```
     <Virtualhost *:443>
      
             Servername ...
@@ -53,13 +54,17 @@ This is completely based on RemoteUserJiraAuth by Angus Warren.
       Order deny,allow
       Allow from all
     </Proxy>
-
+```
 - Create keytab file 
 - Setup User Directory in Confluence
 - Upload RemoteUserConfluenceAuth-1.0.jar to /opt/atlassian/confluence/WEB-INF/lib/RemoteUserConfluenceAuth-1.0.jar
 - Edit /opt/atlassian/confluence/confluence/WEB-INF/classes/seraph-config.xml
 - Comment out default Authenticator
+```
     <!-- <authenticator class="com.atlassian.confluence.user.ConfluenceAuthenticator"/> -->
+```
 - Add new authenticator
+```
     <authenticator class="glorang.confluence.RemoteUserConfluenceAuth"/>
+```
 - Restart Apache & Confluence
