@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>glorang.confluence</groupId>
+    <artifactId>RemoteUserConfluenceAuth</artifactId>
+    <version>1.0</version>
+
+    <organization>
+        <name>glorang</name>
+        <url>https://www.github.com/glorang/RemoteUserConfluenceAuth</url>
+    </organization>
+
+    <name>RemoteUserConfluenceAuth</name>
+    <description>Kerberos SSO via Apache's REMOTE_USER. Based on RemoteUserJiraAuth by Angus Warren.</description>
+    <packaging>atlassian-plugin</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.atlassian.confluence</groupId>
+            <artifactId>confluence</artifactId>
+            <version>${confluence.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>jsr311-api</artifactId>
+            <version>1.1.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.2.2-atlassian-1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.atlassian.maven.plugins</groupId>
+                <artifactId>maven-confluence-plugin</artifactId>
+                <version>${amps.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <productVersion>${confluence.version}</productVersion>
+                    <productDataVersion>${confluence.data.version}</productDataVersion>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <properties>
+        <confluence.version>5.8.5</confluence.version>
+        <confluence.data.version>5.7.4</confluence.data.version>
+        <amps.version>5.0.13</amps.version>
+    </properties>
+
+</project>
