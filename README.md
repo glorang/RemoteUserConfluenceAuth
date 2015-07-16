@@ -12,7 +12,9 @@ This is completely based on RemoteUserJiraAuth by Angus Warren.
 # Installation
 
 - Add AJP connector in /opt/atlassian/confluence/conf/server.xml
+```
     <Connector port="8009" redirectPort="8443" enableLookups="false" protocol="AJP/1.3" URIEncoding="UTF-8" tomcatAuthentication="false"/> 
+```
 - Enable Apache module proxy_ajp and auth_kerb
 - Configure Apache
 ```
