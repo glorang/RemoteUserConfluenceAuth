@@ -45,7 +45,7 @@ This is completely based on RemoteUserJiraAuth by Angus Warren.
                     Require valid-user
             </Location>
      
-            <LocationMatch "^/(rest|sr|images/|s/.*_/images/|secure/useravatar).*$">
+            <LocationMatch "^/(download|rpc|plugins|rest|sr|images/|s/.*_/images/|secure/useravatar|spaces/createrssfeed.action).*$">
                     AuthType None
                     Satisfy Any
             </LocationMatch>
