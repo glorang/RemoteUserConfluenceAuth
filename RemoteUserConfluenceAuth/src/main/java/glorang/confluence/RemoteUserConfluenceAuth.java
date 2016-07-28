@@ -51,8 +51,8 @@ public class RemoteUserConfluenceAuth extends ConfluenceAuthenticator
                     }
                     else
                     {
-                        log.warn("remote_user is null");
-                        return null;
+                        log.debug("returning super.getUser()");
+                        return super.getUser(request, response);
                     }
             }
         }
