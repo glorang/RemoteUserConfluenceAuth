@@ -43,6 +43,11 @@ This is completely based on RemoteUserJiraAuth by Angus Warren.
                     KrbMethodNegotiate on
                     KrbMethodK5Passwd on
                     Require valid-user
+
+                    RewriteEngine On
+                    RewriteCond %{REMOTE_USER} (.+)
+                    RewriteRule . - [E=RU:%1]
+                    RequestHeader set X-Forwarded-User %{RU}e
             </Location>
      
             <LocationMatch "^/(download|rpc|plugins|rest|sr|images/|s/.*_/images/|secure/useravatar|spaces/createrssfeed.action).*$">
@@ -51,15 +56,10 @@ This is completely based on RemoteUserJiraAuth by Angus Warren.
             </LocationMatch>
      
     </Virtualhost>
-     
-    <Proxy *>
-      Order deny,allow
-      Allow from all
-    </Proxy>
 ```
 - Create keytab file 
 - Setup User Directory in Confluence
-- Upload RemoteUserConfluenceAuth-1.0.jar to /opt/atlassian/confluence/WEB-INF/lib/RemoteUserConfluenceAuth-1.0.jar
+- Upload RemoteUserConfluenceAuth-1.3.jar to /opt/atlassian/confluence/WEB-INF/lib/RemoteUserConfluenceAuth-1.3.jar
 - Edit /opt/atlassian/confluence/confluence/WEB-INF/classes/seraph-config.xml
 - Comment out default Authenticator
 ```

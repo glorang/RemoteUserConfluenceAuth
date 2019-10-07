@@ -39,7 +39,7 @@ public class RemoteUserConfluenceAuth extends ConfluenceAuthenticator
             else
             {
                     log.debug("Trying RemoteUserConfluenceAuth SSO");
-                    String remoteuser = request.getRemoteUser();
+                    String remoteuser = request.getHeader("X-Forwarded-User");
                     log.debug("remote_user set to: " + remoteuser);
                     if(remoteuser != null)
                     {

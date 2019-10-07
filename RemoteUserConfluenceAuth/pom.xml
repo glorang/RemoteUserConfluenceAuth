@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>glorang.confluence</groupId>
     <artifactId>RemoteUserConfluenceAuth</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
 
     <organization>
         <name>glorang</name>
@@ -15,7 +15,7 @@
     </organization>
 
     <name>RemoteUserConfluenceAuth</name>
-    <description>Kerberos SSO via Apache's REMOTE_USER. Based on RemoteUserJiraAuth by Angus Warren.</description>
+    <description>Kerberos SSO via Apache. You must set authenticated user in header 'X-Forwarded-User' . Based on RemoteUserJiraAuth by Angus Warren.</description>
     <packaging>atlassian-plugin</packaging>
 
     <dependencies>
