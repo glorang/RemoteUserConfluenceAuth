@@ -51,6 +51,10 @@ This is completely based on RemoteUserJiraAuth by Angus Warren.
             </Location>
      
             <LocationMatch "^/(download|rpc|plugins|rest|sr|images/|s/.*_/images/|secure/useravatar|spaces/createrssfeed.action).*$">
+                    
+                    # Unset X-Forwarded-User to make sure we don't pass "(null)" to Confluence Kerberos SSO Authenticator
+                    RequestHeader unset X-Forwarded-User
+
                     AuthType None
                     Satisfy Any
             </LocationMatch>
